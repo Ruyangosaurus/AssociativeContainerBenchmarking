@@ -47,18 +47,6 @@ void Benchmarker<key_type, mapped_type, batch_size>::operator()()
     std::cerr << "map done\n";
     measure_type<std::unordered_map<key_type, mapped_type>>();
     std::cerr << "unordered_map done\n";
-    measure_type<csaur::BPlusTree<key_type, mapped_type, 256>>();
-    std::cerr << "csaur::BPlusTree256 done\n";
-    measure_type<csaur::BPlusTree<key_type, mapped_type, 256, csaur::BankAllocator<mapped_type, 146>>>();
-    std::cerr << "csaur::BPlusTree256b done\n";
-    measure_type<csaur::BPlusTree<key_type, mapped_type, 256, kartoffle::SegmentedFreelistAllocator<mapped_type>>>();
-    std::cerr << "csaur::BPlusTree256c done\n";
-    measure_type<kartoffle::BPlusTree<key_type, mapped_type, 256, csaur::DefaultAllocator<mapped_type>>>();
-    std::cerr << "kartoffle::BPlusTree256 done\n";
-    measure_type<kartoffle::BPlusTree<key_type, mapped_type, 256, csaur::BankAllocator<mapped_type, 146>>>();
-    std::cerr << "kartoffle::BPlusTree256b done\n";
-    measure_type<kartoffle::BPlusTree<key_type, mapped_type, 256>>();
-    std::cerr << "kartoffle::BPlusTree256c done\n";
 }
 
 template <class key_type, class mapped_type, std::size_t batch_size>
